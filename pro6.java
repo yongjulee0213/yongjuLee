@@ -1,41 +1,31 @@
-package chapter2;
+package chapter3;
 /*
- * 369게임을 간단히 작성해보자.
- * 1~99까지의 정수를 입력받고 정수에 3,6,9 중 하나가 있는 경우에 "박수짝"을 출력하고
- * 두개 있는 경우 "박수 짝짝"을 출력하는 프로그램을 작성하라.
- * 예를 들면, 키보드로 입력된 수가 13인 경우 "박수짝"을, 36인 경우 "박수짝짝"을 출력하면된다.
- * 1~99 사이의 정수를 입력하시오>>36
- * 박수짝짝
+ * 배열과 반복문을 이용하여 프로그램을 작성해보자.
+ * 키보드에서 정수로된 돈의 액수를 입력받아 오만원권, 만원구너, 천원권, 500원짜리 동전, 100원짜리 동전, 50원짜리 동전, 10원짜리 동전, 1원짜리 동전이 각 몇개로 변환되는지 예시와같이 출력
+ * 금액을 입력하시오>65123
+ * 50000원짜리 : 1개
+ * 10000원 짜리 : 1개
+ * 1000원짜리 : 5개
+ * 100원짜리 : 1개
+ * 10원짜리 : 2개
+ * 1원짜리 : 3개
  */
 import java.util.Scanner;
-
 public class pro6 {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
-		
-		System.out.print("1~99 사이의 정수를 입력하시오>>");
-		int num=scanner.nextInt();
-		char num1=Integer.toString(num).charAt(0);
-		char num2=Integer.toString(num).charAt(1);
+		System.out.print("금액을 입력하시오>");
+		int money=scanner.nextInt();
+		int balance=0;
 
-		if(num1=='3' || num1=='6' ||num1=='9') {
-			if(num2=='3'||num2=='6'||num2=='9') {
-				System.out.println("박수짝짝");
-			}
-			else {
-				System.out.println("박수 짝");
-			}
+		int []unit= {50000,10000,1000,500,100,50,10,1};
+		
+		for(int i=0;i<unit.length;i++) {
+			
+			int cnt=money/unit[i];
+			balance=money-cnt*unit[i];
+			money=balance;
+			System.out.println(unit[i]+"원 짜리 : "+cnt+"개");
 		}
-		
-		else if(num2=='3' || num2=='6' ||num2=='9') {
-			if(num1=='3'||num1=='6'||num1=='9') {
-				System.out.println("박수짝짝");
-			}
-			else {
-				System.out.println("박수 짝");
-			}
-		}
-		
-		
 	}
 }

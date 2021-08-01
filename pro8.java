@@ -1,29 +1,28 @@
-package chapter2;
+package chapter3;
+import java.util.Random;
 /*
- * 2차원 평면에서 직사각형은 문제 7번처럼 두 점으로 표현된다.
- * 키보드로부터 직사각형을 구성하는 두 점(x1,y1),(x2,y2)를 입력받아 (100,100),(200,200)의 두점으로 이루어진 직사각형과 충돌하는지 판별하는 프로그램을 작성하라
+ * 정수를 몇개 저장할지 키보드로부터 개수를 입력받아(100보다 작은 개수) 정수 배열을 생성하고,
+ * 이곳에 1에서 100까지 범위의 정수를 랜덤하게 삽입하라.
+ * 배열에는 같은 수가 없도록하고 배열을 출력하라.
+ * 정수 몇개?24
  * 
  */
 import java.util.Scanner;
+
+
 public class pro8 {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
-		System.out.print("점(x1,y1)의 좌표를 입력하시오>>");
-		int x1=scanner.nextInt();
-		int y1=scanner.nextInt();
+		Random rd=new Random();
 		
-		System.out.print("점(x2,y2)의 좌표를 입력하시오>>");
-		int x2=scanner.nextInt();
-		int y2=scanner.nextInt();
-		
-		if((x1<100 ||x1>200)&&(y1<100 ||y1>200)) {
-			if((x2<100 ||x2>200)&&(x2<100 ||x2>200)) {
-						System.out.println("사각형안에 없음.");
-					}
-				}
-		
-		else {
-			System.out.println("사각형 안에 있음.");
+		System.out.print("정수 몇개?");
+		int cnt=scanner.nextInt();
+		int[]num=new int[cnt];
+
+		for(int i=0;i<num.length;i++) {
+			num[i]=rd.nextInt(100)+1;
+			System.out.print(num[i]+" ");
 		}
+		
 	}
 }
