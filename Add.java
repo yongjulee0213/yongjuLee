@@ -1,15 +1,21 @@
-package ch04_pro11;
-
+package chapter3;
+/*
+ *  명령행 인자 중에서 정수만을 골라 합을 구하라.
+ */
 public class Add {
 
-	private int a;
-	private int b;
-	
-	public void setValue(int a, int b) {
-		this.a=a;
-		this.b=b;
-	}
-	public int calculate() {
-		return a+b;
+	public static void main(String[] args) {
+		
+		int sum=0;
+		
+		for(int i=0;i<args.length;i++) {
+			try {
+				sum+=Integer.parseInt(args[i]);
+			}
+			catch(NumberFormatException e) {
+				continue;
+			}
+		}
+		System.out.println(sum);
 	}
 }
